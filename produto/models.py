@@ -27,11 +27,11 @@ class Produto(models.Model):
 
     def get_preco_formatado(self):
         return utils.formata_preco(self.preco_marketing)
-    get_preco_formatado.short_description = 'Preço'
+    get_preco_formatado.short_description = 'Preço' #type:ignore
 
     def get_preco_promocional_formatado(self):
         return utils.formata_preco(self.preco_marketing_promocional)
-    get_preco_promocional_formatado.short_description = 'Preço Promo.'
+    get_preco_promocional_formatado.short_description = 'Preço Promo.'#type:ignore
 
     @staticmethod
     def resize_image(img, new_width=800):
