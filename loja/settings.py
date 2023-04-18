@@ -26,9 +26,7 @@ SECRET_KEY = '34s66f2twc8c&q*i_@@4i(yp7wp0-d_hi3il7%1iom55xz(87w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    
-]
+ALLOWED_HOSTS = [] #type: ignore
 
 
 # Application definition
@@ -44,7 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
     'crispy_forms',
+    # TODO: Remover debug toolbar
+    'debug_toolbar',
+    
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -57,6 +59,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # TODO: Remover debug toolbar
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'loja.urls'
@@ -155,3 +160,9 @@ SESSION_SAVE_EVERY_REQUEST = False
 
 # Serializer - Padrão JSON
 # SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
+
+# TODO: Remover debug toolbar
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
